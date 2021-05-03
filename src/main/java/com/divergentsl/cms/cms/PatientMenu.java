@@ -3,6 +3,8 @@ package com.divergentsl.cms.cms;
 import java.util.List;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,8 +15,10 @@ import com.divergentsl.cms.service.PatientServiceImpl;
 @Component
 public class PatientMenu {
 	
+	private static Logger logger = LoggerFactory.getLogger(PatientMenu.class);
+	
 	@Autowired
-	private PatientService patientService;// = new PatientServiceImpl();
+	private PatientService patientService;
 	
 	public void patientMenu() {
 		A:
@@ -48,7 +52,7 @@ public class PatientMenu {
 				break A;
 				
 			default:
-				System.out.println("Invalid Input!");
+				logger.info("Invalid Input!");
 				break;
 			}
 		}
@@ -104,7 +108,7 @@ public class PatientMenu {
 			System.out.println("Address : " + patient.getAddress());
 			System.out.println("----------------------------------------------------");
 		} else {
-			System.out.println("\nPatient Data Not Found!");
+			logger.info("Patient Data Not Found!");
 		}	
 	}
 	
@@ -129,9 +133,9 @@ public class PatientMenu {
 		int patientId = Integer.parseInt(sc.nextLine());
 		
 		if(this.patientService.delete(patientId)) {
-			System.out.println("Patient Deleted Successfully...");
+			logger.info("Patient Deleted Successfully...");
 		} else {
-			System.out.println("Patient Not Found!");
+			logger.info("Patient Not Found!");
 		}
 	}
 	

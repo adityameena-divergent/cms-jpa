@@ -2,6 +2,8 @@ package com.divergentsl.cms.cms;
 
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,6 +25,7 @@ public class MainMenu {
 	@Autowired
 	private DoctorMenu doctorMenu;
 	
+	private static Logger logger = LoggerFactory.getLogger(MainMenu.class);
 
 	public void mainMenu() {
 		
@@ -49,7 +52,7 @@ public class MainMenu {
 				break M;
 				
 			default:
-				System.out.println("\nInvalid Input!");
+				logger.info("Invalid Input!");
 				break;
 			}
 		}
@@ -70,7 +73,7 @@ public class MainMenu {
 		if (this.adminService.login(username, password)) {
 			this.adminMenu.adminMenu();
 		} else {
-			System.out.println("Incorrect Username & Password!");
+			logger.info("Incorrect Username & Password!");
 		}
 	}
 	
@@ -90,7 +93,7 @@ public class MainMenu {
 		if(doctorId != 0) {
 			this.doctorMenu.doctorMenu(doctorId);
 		} else {
-			System.out.println("\nInvalid Username & Password!");
+			logger.info("Incorrect Username & Password");
 		}
 		
 	}

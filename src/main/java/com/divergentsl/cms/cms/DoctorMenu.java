@@ -3,6 +3,8 @@ package com.divergentsl.cms.cms;
 import java.util.List;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +16,8 @@ import lombok.Setter;
 
 @Component
 public class DoctorMenu {
+	
+	private static Logger logger = LoggerFactory.getLogger(DoctorMenu.class);
 	
 	@Autowired
 	private AppointmentService appointmentService;
@@ -79,7 +83,7 @@ public class DoctorMenu {
 			}
 			System.out.println("\n--------------------------------------------------");
 		} else {
-			System.out.println("Patient apointment not found!");
+			logger.info("Patient Appointment Not Found!");
 		}
 	}
 	
@@ -98,7 +102,7 @@ public class DoctorMenu {
 			}
 			System.out.println("\n----------------------------------------");
 		} else {
-			System.out.println("Patient apointment not found!");
+			logger.info("patient appointment not found!");
 		}
 	}
 	
@@ -121,7 +125,7 @@ public class DoctorMenu {
 			}
 			System.out.println("\n--------------------------------------------------");
 		} else {
-			System.out.println("Patient not found!");
+			logger.info("patient appointment not found!");
 		}
 	}
 	

@@ -99,7 +99,7 @@ public class DrugMenu {
 			System.out.println("Drug Description : " + drug.getDescription());
 			System.out.println("--------------------------------------------------");
 		} else {
-			System.out.println("\nDrug not found!");
+			logger.info("Drug not found!");
 		}
 	}
 	
@@ -119,7 +119,7 @@ public class DrugMenu {
 			}
 			System.out.println("\n--------------------------------------------------------------------");
 		} else {
-			System.out.println("Drug not found!");
+			logger.info("Drug not found!");
 		}
 	}
 	
@@ -131,9 +131,9 @@ public class DrugMenu {
 		int drugId = Integer.parseInt(sc.nextLine());
 		
 		if (this.drugService.delete(drugId)) {
-			System.out.println("\nDrug data deleted successfully...");
+			logger.info("Drug data deleted successfully...");
 		} else {
-			System.out.println("\nDrug Not Found!");
+			logger.info("drug not found!");
 		}
 		
 	}

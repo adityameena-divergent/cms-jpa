@@ -2,11 +2,15 @@ package com.divergentsl.cms.cms;
 
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class AdminMenu {
+	
+	private static Logger logger = LoggerFactory.getLogger(AdminMenu.class);
 	
 	@Autowired
 	private PatientMenu patientMenu;// = new PatientMenu();
@@ -56,7 +60,7 @@ public class AdminMenu {
 				break P;
 
 			default:
-				System.out.println("Invalid Input!");
+				logger.info("Invalid Input!");
 				break;
 			}
 		}

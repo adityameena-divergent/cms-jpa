@@ -3,6 +3,8 @@ package com.divergentsl.cms.cms;
 import java.util.List;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +17,7 @@ public class LabTestMenu {
 	@Autowired
 	private LabTestService labTestService;
 	
+	private static Logger logger = LoggerFactory.getLogger(LabTestMenu.class);
 	
 	public void labTestMenu() {
 		
@@ -27,7 +30,21 @@ public class LabTestMenu {
 			
 			switch (input) {
 			case "1":
+				this.add();
 				break;
+				
+			case "2":
+				this.search();
+				break;
+				
+			case "3":
+				this.listAll();
+				break;
+				
+			case "4":
+				this.delete();
+				break;
+				
 				
 			case "6":
 				break A;
@@ -85,7 +102,7 @@ public class LabTestMenu {
 			System.out.println("Test Fee : " + test.getTestFee());
 			System.out.println("----------------------------------------");
 		} else {
-			System.out.println("Test Data Not Found!");
+			logger.info("Test Data Not Found!");
 		}
 	}
 	
@@ -105,7 +122,7 @@ public class LabTestMenu {
 			}
 			System.out.println("\n------------------------------");
 		} else {
-			System.out.println("Test not found!");
+			logger.info("Test not found!");
 		}
 	}
 	
@@ -119,14 +136,14 @@ public class LabTestMenu {
 		int testId = Integer.parseInt(sc.nextLine());
 		
 		if (this.labTestService.delete(testId)) {
-			System.out.println("Data Deleted Successfully...");
+			logger.info("Data Deleted Successfully...");
 		} else {
-			System.out.println("Data not found!");
+			logger.info("Data not found!");
 		}
 	}
 	
 	public void update() {
-		
+		logger.info("Operation not available");
 	}
 	
 	

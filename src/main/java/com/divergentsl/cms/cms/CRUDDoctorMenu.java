@@ -3,6 +3,8 @@ package com.divergentsl.cms.cms;
 import java.util.List;
 import java.util.Scanner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +17,8 @@ public class CRUDDoctorMenu {
 	@Autowired
 	private DoctorService doctorService;
 
+	private static Logger logger = LoggerFactory.getLogger(CRUDDoctorMenu.class);
+	
 	public void doctorMenu() {
 		D: while (true) {
 
@@ -47,7 +51,7 @@ public class CRUDDoctorMenu {
 				break D;
 
 			default:
-				System.out.println("Invalid Input!");
+				logger.info("Invalid Input!");
 				break;
 			}
 		}
@@ -108,7 +112,7 @@ public class CRUDDoctorMenu {
 			System.out.println("Password : " + doctor.getPassword());
 			System.out.println("----------------------------------------------------");
 		} else {
-			System.out.println("\nDoctor not found!");
+			logger.info("Doctor not found!");
 		}
 	}
 	
@@ -130,7 +134,7 @@ public class CRUDDoctorMenu {
 			System.out.println("\n----------------------------------------------------------------------");
 
 		} else {
-			System.out.println("\nNo Doctor Data Found!");
+			logger.info("No doctor data found!");
 		}
 	}
 	
@@ -144,7 +148,7 @@ public class CRUDDoctorMenu {
 		if (this.doctorService.delete(doctorId)) {
 			System.out.println("\nDelete Successfully...");
 		} else {
-			System.out.println("\nDoctor not found!");
+			logger.info("Doctor not found!");
 		}
 	}
 	
