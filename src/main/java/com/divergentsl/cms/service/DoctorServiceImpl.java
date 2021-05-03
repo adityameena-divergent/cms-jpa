@@ -59,5 +59,17 @@ public class DoctorServiceImpl implements DoctorService {
 	public void update(Doctor doctor) {
 		this.doctorDao.update(doctor);
 	}
+	
+	@Transactional
+	@Override
+	public int doctorLogin(String username, String password) {
+		
+		List<Doctor> list = this.listAll();
+		for(Doctor doctor : list) {
+			if (doctor.getUsername().equals(username) && doctor.getPassword().equals(password))
+				return doctor.getId();
+		}
+		return 0;
+	}
 
 }

@@ -3,6 +3,7 @@ package com.divergentsl.cms;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.divergentsl.cms.cms.AdminMenu;
+import com.divergentsl.cms.cms.MainMenu;
 import com.divergentsl.cms.config.AppConfig;
 
 public class App 
@@ -34,11 +35,11 @@ public class App
     	
     	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
     	
-    	AdminMenu adminMenu = context.getBean(AdminMenu.class);
+    	MainMenu mainMenu = context.getBean(MainMenu.class);
         
 //    	AdminMenu adminMenu = new AdminMenu();
     	
-    	adminMenu.adminMenu();
+    	mainMenu.mainMenu();
     	
 //    	context.close();
         

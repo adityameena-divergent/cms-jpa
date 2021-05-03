@@ -16,4 +16,5 @@ public interface DoctorDao {
 	
 	public void update(Doctor doctor);
 	
+	
 }

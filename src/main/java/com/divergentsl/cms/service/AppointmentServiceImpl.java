@@ -1,5 +1,8 @@
 package com.divergentsl.cms.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +35,28 @@ public class AppointmentServiceImpl implements AppointmentService {
 		appointment.setPatient(patientService.searchById(patientId));
 		
 		appointmentDao.save(appointment);
+	}
+
+	@Override
+	public List<Appointment> getList() {
+		return appointmentDao.get();
+	}
+
+	@Override
+	public List<Appointment> getAppointedPatientList(int doctorId) {
+		
+		return this.getList().stream().filter(pa -> {
+			return pa.getDoctor().getId() == doctorId;
+		}).collect(Collectors.toList());
+
+	}
+
+	@Override
+	public List<Appointment> getPatientHistory(int patientId) {
+
+		return this.getList().stream().filter(pa -> {
+			return pa.getPatient().getId() == patientId;
+		}).collect(Collectors.toList());
 	}
 
 	

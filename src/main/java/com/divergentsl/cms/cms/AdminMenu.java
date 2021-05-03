@@ -12,7 +12,7 @@ public class AdminMenu {
 	private PatientMenu patientMenu;// = new PatientMenu();
 	
 	@Autowired
-	private DoctorMenu doctorMenu;
+	private CRUDDoctorMenu doctorMenu;
 	
 	@Autowired
 	private DrugMenu drugMenu;

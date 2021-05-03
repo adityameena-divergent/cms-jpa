@@ -24,8 +24,8 @@ public class DoctorDaoImpl implements DoctorDao {
 	}
 
 	@Override
-	public Doctor searchById(int patientId) {
-		return em.find(Doctor.class, patientId);
+	public Doctor searchById(int doctorId) {
+		return em.find(Doctor.class, doctorId);
 	}
 
 
@@ -48,7 +48,6 @@ public class DoctorDaoImpl implements DoctorDao {
 	public void update(Doctor doctor) {
 		em.persist(doctor);
 	}
-
 
 	
 }

@@ -15,5 +15,6 @@ public interface DoctorService {
 	public boolean delete(int doctorId);
 	
 	public void update(Doctor doctor);
-	
+
+	public int doctorLogin(String username, String password);
 }
